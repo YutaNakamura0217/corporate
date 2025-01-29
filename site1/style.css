@@ -8,14 +8,31 @@
 body {
     font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "HGP明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
     color: #333333;
-    background-color: #FFFFFF;
+    background-color: #E0FFFF;
+    /* 初期背景色 */
     font-size: 16px;
     line-height: 1.6;
+    background-image: url("texture.png");
+    /* テクスチャ画像 */
+    background-blend-mode: overlay;
+    /* テクスチャのブレンドモード */
+    background-attachment: fixed;
+    /* パララックス効果 */
+    overflow-x: hidden;
+    /* 横スクロール防止 */
 }
 
 a {
     text-decoration: none;
-    color: #333333;
+    color: #20687E;
+    /* リンクカラー */
+    transition: color 0.3s ease;
+    /* ホバー時の色変化を滑らかに */
+}
+
+a:hover {
+    color: #70B5B5;
+    /* ホバー時のリンクカラー */
 }
 
 li {
@@ -33,15 +50,20 @@ header {
     position: relative;
     width: 100%;
     z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* 変化を滑らかに */
 }
 
 .header-container {
-    background-color: #f2ede6;
+    background: linear-gradient(to right, #20687E, #70B5B5);
+    /* グラデーション */
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    transition: background-color 0.3s ease;
+    /* 変化を滑らかに */
 }
 
 .top-content {
@@ -52,7 +74,7 @@ header {
 
 .top-content p {
     font-size: 0.9rem;
-    color: #333333;
+    color: #FFFFFF;
 }
 
 .header-inner {
@@ -63,6 +85,8 @@ header {
 .logo {
     z-index: 10;
     width: 50px;
+    transition: transform 0.3s ease;
+    /* 変化を滑らかに */
 }
 
 .logo img {
@@ -79,14 +103,39 @@ nav li {
 }
 
 nav a {
-    color: #333333;
+    color: #FFFFFF;
     font-family: "Helvetica Neue", Arial, sans-serif;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* 変化を滑らかに */
+    display: inline-block;
+    /* transformを適用 */
 }
 
 nav a:hover {
-    color: #194855;
+    color: #FFE082;
+    transform: translateY(-2px);
+    /* ホバー時に少し上に */
+}
+
+/* ホバー時に疑似要素でテキストを表示 */
+nav a::before {
+    content: attr(data-hover);
+    /* 続き */
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #FFE082;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    font-weight: normal;
+}
+
+nav a:hover::before {
+    opacity: 1;
 }
 
 /* PC/SP Navigation */
@@ -108,7 +157,7 @@ nav a:hover {
 }
 
 .hamburger-menu span {
-    background-color: #333333;
+    background-color: #FFFFFF;
     display: block;
     width: 25px;
     height: 3px;
@@ -120,26 +169,42 @@ nav a:hover {
 .main-visual {
     position: relative;
     width: 100%;
-    height: 600px; /* 画像の高さ */
-}.slider {
+    height: 600px;
+}
+
+.slider {
     display: flex;
     overflow: hidden;
     width: 100%;
     height: 100%;
-}.slide {
+}
+
+.slide {
     min-width: 100%;
     position: relative;
     display: none;
     align-items: center;
     justify-content: center;
     height: 100%;
-}.slide:first-child{
+    opacity: 0;
+    /* 初期状態を透明に */
+    transition: opacity 1.5s ease;
+    /* フェードトランジション */
+}
+
+.slide:first-child {
     display: flex;
-}.slide img {
+    opacity: 1;
+    /* 最初のスライドは表示&不透明 */
+}
+
+.slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}.slide-text {
+}
+
+.slide-text {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -148,7 +213,9 @@ nav a:hover {
     color: #FFFFFF;
     z-index: 2;
     width: 100%;
-}.slide-text::before { /* 半透明オーバーレイ */
+}
+
+.slide-text::before {
     content: "";
     position: absolute;
     top: 0;
@@ -157,18 +224,26 @@ nav a:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: -1;
-}.slide-text h2 {
+}
+
+.slide-text h2 {
     font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
     font-size: 2.5rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     padding: 0 20px;
-}.slide-text p {
+    color: #FFFFFF;
+}
+
+.slide-text p {
     font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
     font-size: 1.2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     padding: 0 20px;
-}.slide-btn{
+    color: #FFFFFF;
+}
+
+.slide-btn {
     position: absolute;
     left: 50%;
     bottom: 30px;
@@ -178,7 +253,8 @@ nav a:hover {
 }
 
 /* スライダーの矢印ボタン */
-.prev,.next {
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -191,11 +267,16 @@ nav a:hover {
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-}.next {
+}
+
+.next {
     right: 0;
     border-radius: 3px 0 0 3px;
-}.prev:hover,.next:hover {
-    background-color: rgba(0,0,0,0.8);
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Attractions */
@@ -209,6 +290,7 @@ nav a:hover {
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-weight: bold;
+    color: #20687E;
 }
 
 .sub-copy {
@@ -219,8 +301,8 @@ nav a:hover {
 
 .attraction-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3つの列を作成 */
-    gap: 40px; /* 要素間の余白を調整 */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
 }
 
 .attraction {
@@ -241,25 +323,28 @@ nav a:hover {
     font-size: 1.8rem;
     margin-bottom: 10px;
     font-weight: bold;
+    color: #20687E;
 }
 
 .detail-btn {
     display: inline-block;
-    background-color: #194855;
-    color: #FFFFFF;
+    background-color: #FFE082;
+    color: #20687E;
     font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* ホバー変化 */
     text-decoration: none;
     margin-top: 10px;
     font-weight: bold;
 }
 
 .detail-btn:hover {
-    background-color: #29687e;
+    background-color: #FFA500;
+    transform: scale(1.05);
+    /* ホバー時に少し拡大 */
 }
-
 
 @media (max-width: 768px) {
     .attraction-list {
@@ -284,6 +369,7 @@ nav a:hover {
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-weight: bold;
+    color: #20687E;
 }
 
 .event-list {
@@ -294,7 +380,7 @@ nav a:hover {
 }
 
 .event {
-    width: calc(50% - 20px); /* 2カラム */
+    width: calc(50% - 20px);
     background-color: #FFFFFF;
     border-radius: 8px;
     overflow: hidden;
@@ -317,6 +403,7 @@ nav a:hover {
     font-size: 1.6rem;
     margin-bottom: 10px;
     font-weight: bold;
+    color: #20687E;
 }
 
 /* Access */
@@ -330,6 +417,7 @@ nav a:hover {
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-weight: bold;
+    color: #20687E;
 }
 
 .map {
@@ -362,6 +450,7 @@ nav a:hover {
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-weight: bold;
+    color: #20687E;
 }
 
 .pamphlet-list {
@@ -385,18 +474,20 @@ nav a:hover {
 
 .download-btn {
     display: inline-block;
-    background-color: #194855;
-    color: #FFFFFF;
+    background-color: #FFE082;
+    color: #20687E;
     font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
     font-weight: bold;
 }
 
 .download-btn:hover {
-    background-color: #29687e;
+    background-color: #FFA500;
+    transform: scale(1.05);
+    /* ホバー時に少し拡大 */
 }
 
 /* News */
@@ -410,6 +501,7 @@ nav a:hover {
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-weight: bold;
+    color: #20687E;
 }
 
 .news-list {
@@ -428,16 +520,16 @@ nav a:hover {
 }
 
 .news-list a {
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .news-list a:hover {
-    color: #194855;
+    color: #70B5B5;
 }
 
 /* Footer */
 footer {
-    background-color: #194855;
+    background-color: #20687E;
     color: #FFFFFF;
     padding: 40px 0;
 }
@@ -453,7 +545,7 @@ footer .container {
     width: 50px;
 }
 
-.footer-logo img{
+.footer-logo img {
     width: 100%;
     vertical-align: bottom;
 }
@@ -467,7 +559,7 @@ footer .container {
     margin-top: 10px;
 }
 
-.tel{
+.tel {
     font-family: "游明朝", YuMincho, serif;
     font-size: 1.2rem;
     white-space: nowrap;
@@ -492,19 +584,82 @@ footer .container {
     white-space: nowrap;
 }
 
+/* ローディングアニメーション */
+#loading-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #E0FFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* 最前面に */
+    opacity: 1;
+    transition: opacity 1s ease;
+    /* フェードアウト */
+}
+
+#loading-animation.loaded {
+    opacity: 0;
+    pointer-events: none;
+    /* クリックを無効化 */
+}
+
+.loading-icon {
+    width: 80px;
+    animation: rotate 2s linear infinite;
+    /* 回転アニメーション */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* スティッキーヘッダー */
+header.sticky {
+    background-color: rgba(32, 104, 126, 0.95) !important;
+    /* ヘッダーの背景色 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header.sticky .logo {
+    transform: scale(0.9);
+    /* ロゴを少し小さく */
+}
+
+header.sticky nav a {
+    color: #FFF;
+    /* スクロール時のナビ文字色 */
+}
+
+header.sticky nav a:hover {
+    color: #FFE082;
+    /* スクロール時のナビ文字色 */
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-    .header-container{
+    .header-container {
         flex-direction: column;
         align-items: flex-start;
         gap: 0;
     }
+
     .top-content {
         width: 100%;
         justify-content: space-between;
     }
 
-    .logo{
+    .logo {
         margin-bottom: 0;
         margin-right: 0;
     }
@@ -524,7 +679,7 @@ footer .container {
         width: 100%;
         margin: 0;
         padding: 20px;
-        background-color: #f2ede6;
+        background-color: #70B5B5;
         position: fixed;
         top: 0;
         left: 0;
@@ -534,16 +689,16 @@ footer .container {
         z-index: 10;
     }
 
-    /* メニュー表示のアニメーション */
     .sp-nav ul.open {
-        transform: translateX(0); 
+        transform: translateX(0);
     }
-    .sp-nav li{
+
+    .sp-nav li {
         margin-right: 0;
         margin-bottom: 15px;
     }
 
-    .sp-nav a{
+    .sp-nav a {
         font-size: 1rem;
     }
 
@@ -560,11 +715,6 @@ footer .container {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* メニュー表示のアニメーション */
-    .sp-nav ul.open {
-        left: 0;
-    }
-
     .slide-text h2 {
         font-size: 2rem;
     }
@@ -577,7 +727,7 @@ footer .container {
         flex-direction: column;
     }
 
-    .attraction h3{
+    .attraction h3 {
         font-size: 1.6rem;
     }
 
@@ -585,11 +735,11 @@ footer .container {
         flex-direction: column;
     }
 
-    .event{
+    .event {
         width: 100%;
     }
 
-    .event-text h3{
+    .event-text h3 {
         font-size: 1.5rem;
     }
 
@@ -602,23 +752,26 @@ footer .container {
         margin-bottom: 20px;
     }
 
-    .footer .container{
+    .footer .container {
         justify-content: center;
     }
 
-    .copyright{
+    .copyright {
         order: 0;
     }
+
     .sns-links {
         margin-top: 20px;
     }
-    .tel{
+
+    .tel {
         margin-top: 10px;
         font-size: 1rem;
         width: 100%;
         text-align: center;
     }
-    .contact-link{
+
+    .contact-link {
         white-space: normal;
     }
 }

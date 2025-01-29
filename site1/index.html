@@ -6,6 +6,7 @@
     <title>幻影諸島観光協会 エターナル/スパーク</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -18,12 +19,12 @@
                 <nav class="pc-nav">
                     <ul>
                         <li><a href="#">TOP</a></li>
-                        <li><a href="#attractions">諸島の魅力</a></li>
-                        <li><a href="#events">イベント・特集</a></li>
-                        <li><a href="#access">アクセス</a></li>
-                        <li><a href="#pamphlet">パンフレット</a></li>
-                        <li><a href="#news">お知らせ</a></li>
-                        <li><a href="#contact">お問い合わせ</a></li>
+                        <li><a href="#attractions" data-hover="諸島の魅力">諸島の魅力</a></li>
+                        <li><a href="#events" data-hover="イベント・特集">イベント・特集</a></li>
+                        <li><a href="#access" data-hover="アクセス">アクセス</a></li>
+                        <li><a href="#pamphlet" data-hover="パンフレット">パンフレット</a></li>
+                        <li><a href="#news" data-hover="お知らせ">お知らせ</a></li>
+                        <li><a href="#contact" data-hover="お問い合わせ">お問い合わせ</a></li>
                     </ul>
                 </nav>
                 <nav class="sp-nav">
@@ -47,6 +48,9 @@
     </header>
 
     <main>
+        <div id="loading-animation">
+            <div class="loading-icon"><img src="logo.svg" alt="Loading..."></div>
+        </div>
         <section class="main-visual">
             <div class="slider">
                 <div class="slide">
@@ -80,20 +84,20 @@
 
         <section id="attractions" class="attractions">
             <div class="container">
-                <h2>諸島の魅力</h2>
-                <p class="sub-copy">さあ、まだ知らない幻影諸島へ</p>
+                <h2 data-aos="fade-up">諸島の魅力</h2>
+                <p class="sub-copy" data-aos="fade-up">さあ、まだ知らない幻影諸島へ</p>
                 <div class="attraction-list">
-                    <div class="attraction">
+                    <div class="attraction" data-aos="fade-up" data-aos-delay="200">
                         <img src="attraction1.jpg" alt="ミストラル群島エリアの魅力">
                         <h3>ミストラル群島</h3>
                         <a href="#" class="detail-btn">詳しく見る</a>
                     </div>
-                    <div class="attraction">
+                    <div class="attraction" data-aos="fade-up" data-aos-delay="400">
                         <img src="attraction2.jpg" alt="オーロラリア連峰エリアの魅力">
                         <h3>オーロラリア連峰</h3>
                         <a href="#" class="detail-btn">詳しく見る</a>
                     </div>
-                    <div class="attraction">
+                    <div class="attraction" data-aos="fade-up" data-aos-delay="600">
                         <img src="attraction3.jpg" alt="セレスティア海峡エリアの魅力">
                         <h3>セレスティア海峡</h3>
                         <a href="#" class="detail-btn">詳しく見る</a>
@@ -104,30 +108,30 @@
 
         <section id="events" class="events">
             <div class="container">
-                <h2>イベント・特集</h2>
+                <h2 data-aos="fade-up">イベント・特集</h2>
                 <div class="event-list">
-                    <div class="event">
+                    <div class="event" data-aos="fade-up" data-aos-delay="200">
                         <img src="event1.jpg" alt="イベントタイトル1">
                         <div class="event-text">
                             <h3>イベントタイトル1</h3>
                             <a href="#" class="detail-btn">詳しく見る</a>
                         </div>
                     </div>
-                    <div class="event">
+                    <div class="event" data-aos="fade-up" data-aos-delay="400">
                         <img src="event2.jpg" alt="イベントタイトル2">
                         <div class="event-text">
                             <h3>イベントタイトル2</h3>
                             <a href="#" class="detail-btn">詳しく見る</a>
                         </div>
                     </div>
-                    <div class="event">
+                    <div class="event" data-aos="fade-up" data-aos-delay="600">
                         <img src="event3.jpg" alt="イベントタイトル3">
                         <div class="event-text">
                             <h3>イベントタイトル3</h3>
                             <a href="#" class="detail-btn">詳しく見る</a>
                         </div>
                     </div>
-                    <div class="event">
+                    <div class="event" data-aos="fade-up" data-aos-delay="800">
                         <img src="event4.jpg" alt="イベントタイトル4">
                         <div class="event-text">
                             <h3>イベントタイトル4</h3>
@@ -140,11 +144,11 @@
 
         <section id="access" class="access">
             <div class="container">
-                <h2>アクセス</h2>
-                <div class="map">
+                <h2 data-aos="fade-up">アクセス</h2>
+                <div class="map" data-aos="fade-up">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d213708.69149176148!2d130.22994531640624!3d32.43642699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540555555555555%3A0x745de3a37555457e!2z54aK5pys55Sj6aas55Sw5biC!5e0!3m2!1sja!2sjp!4v1688095057736!5m2!1sja!2sjp" style="border:0; width: 100%; height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="transportation">
+                <div class="transportation" data-aos="fade-up">
                     <p>飛行機: 幻影諸島国際空港(GSJ)より、シャトル船で各島へアクセス</p>
                     <p>船: エルドラド港から高速船で約2時間</p>
                     <p>幻影諸島に位置する各施設へは、以下の所要時間となります。</p>
@@ -154,23 +158,23 @@
                     浮遊バス: 風詠みの神殿（約40分）、アズール・ラグーン（約55分）、天空庭園（約70分）</p>
                     <p>※上記の所要時間は目安です。天候状況によって変わる場合があります。</p>
                 </div>
-                <a href="#" class="detail-btn">詳しく見る</a>
+                <a href="#" class="detail-btn" data-aos="fade-up">詳しく見る</a>
             </div>
         </section>
 
         <section id="pamphlet" class="pamphlet">
             <div class="container">
-                <h2>パンフレット</h2>
+                <h2 data-aos="fade-up">パンフレット</h2>
                 <div class="pamphlet-list">
-                    <div class="pamphlet-item">
+                    <div class="pamphlet-item" data-aos="fade-up" data-aos-delay="200">
                         <img src="pamphlet1.jpg" alt="パンフレット1の表紙">
                         <a href="#" class="download-btn">ダウンロード</a>
                     </div>
-                    <div class="pamphlet-item">
+                    <div class="pamphlet-item" data-aos="fade-up" data-aos-delay="400">
                         <img src="pamphlet2.jpg" alt="パンフレット2の表紙">
                         <a href="#" class="download-btn">ダウンロード</a>
                     </div>
-                    <div class="pamphlet-item">
+                    <div class="pamphlet-item" data-aos="fade-up" data-aos-delay="600">
                         <img src="pamphlet3.jpg" alt="パンフレット3の表紙">
                         <a href="#" class="download-btn">ダウンロード</a>
                     </div>
@@ -180,17 +184,17 @@
 
         <section id="news" class="news">
             <div class="container">
-                <h2>お知らせ</h2>
+                <h2 data-aos="fade-up">お知らせ</h2>
                 <ul class="news-list">
-                    <li>
+                    <li data-aos="fade-up" data-aos-delay="200">
                         <span class="date">2023.07.28</span>
                         <a href="#">お知らせタイトル1</a>
                     </li>
-                    <li>
+                    <li data-aos="fade-up" data-aos-delay="400">
                         <span class="date">2023.07.15</span>
                         <a href="#">お知らせタイトル2</a>
                     </li>
-                    <li>
+                    <li data-aos="fade-up" data-aos-delay="600">
                         <span class="date">2023.07.01</span>
                         <a href="#">お知らせタイトル3</a>
                     </li>
@@ -213,6 +217,8 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
