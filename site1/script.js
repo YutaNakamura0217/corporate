@@ -20,16 +20,16 @@ window.onscroll = function() {
 };
 
 const header = document.querySelector("header");
-const headerTop = header.offsetTop;
+const headerHeight = header.offsetHeight; //修正:ヘッダーの高さを取得
 
 function stickyHeader() {
-    if (window.pageYOffset > headerTop) {
+    if (window.pageYOffset >= headerHeight) { //修正:スクロール量がヘッダーの高さ以上
         header.classList.add("sticky");
         header.style.position = "fixed";
         header.style.top = "0";
         header.style.left = "0";
         header.style.width = "100%";
-        header.style.backgroundColor = "rgba(255, 255, 255, 0.95)"; // 透明度を追加
+        header.style.backgroundColor = "rgba(242, 237, 230, 0.95)"; // 透明度を調整
         header.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
     } else {
         header.classList.remove("sticky");
@@ -39,12 +39,11 @@ function stickyHeader() {
     }
 }
 
-// パララックス効果用の背景画像切り替え
-const headerBg = document.querySelector(".parallax-bg");
-const bgImages = ["header-bg.jpg", "header-bg2.jpg", "header-bg3.jpg"]; // 画像のパスを適宜変更
-let bgIndex = 0;
+// ハンバーガーメニュー
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const spNav = document.querySelector(".sp-nav ul");
 
-setInterval(() => {
-    bgIndex = (bgIndex + 1) % bgImages.length;
-    headerBg.style.backgroundImage = `url(${bgImages[bgIndex]})`;
-}, 10000); // 10秒ごとに切り替え
+hamburgerMenu.addEventListener("click", () => {
+    hamburgerMenu.classList.toggle("open");
+    spNav.classList.toggle("open");
+});
