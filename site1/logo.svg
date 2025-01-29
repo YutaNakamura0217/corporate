@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .monogram {
+      fill: #194855; /* メインカラー */
+      stroke: none;
+    }
+    .circle {
+      fill: none;
+      stroke: #194855; /* メインカラー */
+      stroke-width: 5;
+    }
+  </style>
+
+  <circle class="circle" cx="100" cy="100" r="90"/>
+
+  <path class="monogram" d="M60 60 
+       A25 25 0 0 1 85 35 
+       L85 60
+       A25 25 0 0 0 60 85
+       L60 60
+       M95 60
+       L95 140
+       A25 25 0 0 0 120 165
+       L120 140
+       A25 25 0 0 1 145 115
+       L145 100
+       A25 25 0 0 1 95 100
+       z
+       "/>
+</svg>
